@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Traductor · 100% offline · Offline translator for Android</title>
-<meta name="description" content="Traductor — traductor de texto, voz y fotos 100% offline para Android, con LLM, Whisper, VAD, OCR y TTS locales. / Fully offline text, voice and photo translator for Android." />
+<meta name="description" content="Traductor — traductor de texto, voz y fotos 100% offline para Android, con NLLB-200 (ONNX), Whisper, VAD, OCR y TTS locales. / Fully offline text, voice and photo translator for Android (NLLB-200 · ONNX)." />
 <link rel="icon" href="icon.png" />
 <meta name="theme-color" content="#0A84FF" />
 <style>
@@ -195,23 +195,23 @@
   <div class="badges">
     <span class="badge">Android 8+ · arm64-v8a</span>
     <span class="badge">100% offline</span>
-    <span class="badge">Kotlin + JNI / C++</span>
+    <span class="badge">NLLB-200 · ONNX</span>
     <span class="badge">Open source</span>
   </div>
   <div class="cta">
-    <a class="btn primary" href="https://github.com/aurenox-global/traductor/releases/download/v0.9.6/traductor-arm64-debug.apk">
-      ⬇️&nbsp;<span data-lang="es">Descargar APK (63 MB)</span><span data-lang="en">Download APK (63 MB)</span>
+    <a class="btn primary" href="https://github.com/aurenox-global/traductor/releases/download/v1.0-nllb/traductor-nllb-lite-arm64-debug.apk">
+      ⬇️&nbsp;<span data-lang="es">LITE — Descargar APK (≈79 MB)</span><span data-lang="en">LITE — Download APK (≈79 MB)</span>
     </a>
-    <a class="btn" href="https://github.com/aurenox-global/traductor/releases/download/v0.9.6-full/traductor-full-arm64-debug.apk">
-      📦&nbsp;<span data-lang="es">FULL todo incluido (903 MB)</span><span data-lang="en">FULL all-included (903 MB)</span>
+    <a class="btn" href="https://github.com/aurenox-global/traductor/releases/download/v1.0-nllb/traductor-nllb-full-arm64-debug.apk">
+      📦&nbsp;<span data-lang="es">FULL todo incluido (≈1,32 GB)</span><span data-lang="en">FULL all-included (≈1.32 GB)</span>
     </a>
     <a class="btn" href="https://github.com/aurenox-global/traductor">
       🐙&nbsp;<span data-lang="es">Ver en GitHub</span><span data-lang="en">View on GitHub</span>
     </a>
   </div>
   <p class="tag" style="font-size:14px;margin-top:14px">
-    <span data-lang="es">La versión ligera descarga los modelos en el primer arranque (~650 MB). La FULL ya los lleva dentro: funciona sin conexión desde el primer segundo (ocupa ~1,8 GB instalada).</span>
-    <span data-lang="en">The light version downloads the models on first run (~650 MB). The FULL one already bundles them: it works offline from the very first second (uses ~1.8 GB installed).</span>
+    <span data-lang="es">Ambas usan el motor <b>NLLB-200 (ONNX)</b>. La <b>LITE</b> trae el OCR y descarga los modelos NLLB (~900 MB) en el primer arranque —o los importas desde el móvil—; la <b>FULL</b> ya los lleva dentro: funciona sin conexión desde el primer segundo.</span>
+    <span data-lang="en">Both use the <b>NLLB-200 (ONNX)</b> engine. <b>LITE</b> ships OCR and downloads the NLLB models (~900 MB) on first run —or you import them from the phone—; <b>FULL</b> already bundles them: it works offline from the very first second.</span>
   </p>
 </div>
 
@@ -245,8 +245,8 @@
   <h2><span data-lang="es">Características</span><span data-lang="en">Features</span></h2>
   <div class="grid">
     <div class="card"><div class="ico">🌍</div>
-      <h3><span data-lang="es">30+ idiomas</span><span data-lang="en">30+ languages</span></h3>
-      <p><span data-lang="es">Detección automática y español, inglés, francés, alemán, italiano, portugués, ruso, chino, japonés, coreano, árabe, hindi, turco, neerlandés, polaco, ucraniano, rumano, búlgaro, húngaro…</span><span data-lang="en">Auto-detect plus Spanish, English, French, German, Italian, Portuguese, Russian, Chinese, Japanese, Korean, Arabic, Hindi, Turkish, Dutch, Polish, Ukrainian, Romanian, Bulgarian, Hungarian…</span></p>
+      <h3><span data-lang="es">Idiomas NLLB-200</span><span data-lang="en">NLLB-200 languages</span></h3>
+      <p><span data-lang="es">NLLB-200 cubre 200 idiomas; la app mapea los principales: español, inglés, francés, alemán, italiano, portugués, ruso, chino, japonés, coreano, árabe, hindi, turco, neerlandés, polaco, ucraniano, rumano, búlgaro, húngaro, bengalí…</span><span data-lang="en">NLLB-200 covers 200 languages; the app maps the main ones: Spanish, English, French, German, Italian, Portuguese, Russian, Chinese, Japanese, Korean, Arabic, Hindi, Turkish, Dutch, Polish, Ukrainian, Romanian, Bulgarian, Hungarian, Bengali…</span></p>
     </div>
     <div class="card"><div class="ico">⌨️</div>
       <h3><span data-lang="es">Traducción de texto</span><span data-lang="en">Text translation</span></h3>
@@ -264,13 +264,17 @@
       <h3><span data-lang="es">Lectura offline</span><span data-lang="en">Offline read-aloud</span></h3>
       <p><span data-lang="es">Voces neuronales Piper para los 32 idiomas (ES/EN/FR/DE/IT/PT/RU/ZH/JA/KO/AR/HI/TR/NL/PL/UK/RO/BG/HU/SV/DA/FI/NO/CS/EL/HE/FA/ID/VI/TH/BN/CA): femeninas por preferencia, masculinas solo si son la única voz del idioma o todas sus voces son masculinas (AR/TR/BG/RO/DA/FA/FI/HE). Motor del sistema como reserva.</span><span data-lang="en">Piper neural voices for all 32 languages (ES/EN/FR/DE/IT/PT/RU/ZH/JA/KO/AR/HI/TR/NL/PL/UK/RO/BG/HU/SV/DA/FI/NO/CS/EL/HE/FA/ID/VI/TH/BN/CA): female by preference, male only when it's a language's only voice or all its voices are male (AR/TR/BG/RO/DA/FA/FI/HE). System engine as fallback.</span></p>
     </div>
+    <div class="card"><div class="ico">📥</div>
+      <h3><span data-lang="es">Importar modelos NLLB</span><span data-lang="en">Import NLLB models</span></h3>
+      <p><span data-lang="es">Descarga los ONNX o impórtalos desde una carpeta del móvil (encoder + decoder + tokenizer.bin): sin transferir nada más que la APK.</span><span data-lang="en">Download the ONNX files or import them from a folder on the phone (encoder + decoder + tokenizer.bin): nothing but the APK is transferred.</span></p>
+    </div>
     <div class="card"><div class="ico">🕘</div>
       <h3><span data-lang="es">Historial</span><span data-lang="en">History</span></h3>
       <p><span data-lang="es">Tus traducciones se guardan localmente y puedes volver a consultarlas.</span><span data-lang="en">Your translations are stored locally and can be revisited.</span></p>
     </div>
     <div class="card"><div class="ico">⚙️</div>
       <h3><span data-lang="es">Gestor de modelos</span><span data-lang="en">Model manager</span></h3>
-      <p><span data-lang="es">Descarga o importa modelos GGUF, Whisper y voces Piper desde Ajustes.</span><span data-lang="en">Download or import GGUF, Whisper models and Piper voices from Settings.</span></p>
+      <p><span data-lang="es">Descarga o importa los modelos NLLB, Whisper y las voces Piper desde Ajustes.</span><span data-lang="en">Download or import the NLLB and Whisper models and the Piper voices from Settings.</span></p>
     </div>
     <div class="card"><div class="ico">🔒</div>
       <h3><span data-lang="es">Privacidad total</span><span data-lang="en">Total privacy</span></h3>
@@ -282,19 +286,19 @@
 <section id="pipeline" class="wrap">
   <h2><span data-lang="es">Cómo funciona</span><span data-lang="en">How it works</span></h2>
   <p class="lead">
-    <span data-lang="es">Un único pipeline (Kotlin) alimenta el motor local (C++/JNI).</span>
-    <span data-lang="en">A single pipeline (Kotlin) drives the local engine (C++/JNI).</span>
+    <span data-lang="es">Un único pipeline (Kotlin) alimenta los motores locales (ONNX Runtime + whisper.cpp).</span>
+    <span data-lang="en">A single pipeline (Kotlin) drives the local engines (ONNX Runtime + whisper.cpp).</span>
   </p>
   <ol class="steps">
     <li><b><span data-lang="es">Entrada</span><span data-lang="en">Input</span></b><span data-lang="es"> — texto tecleado, audio del micro o una foto (cámara/galería).</span><span data-lang="en"> — typed text, mic audio or a photo (camera/gallery).</span></li>
     <li><b>VAD / OCR</b><span data-lang="es"> — Silero VAD recorta el habla; PaddleOCR PP-OCR extrae el texto de la imagen. Ambos con ONNX Runtime.</span><span data-lang="en"> — Silero VAD trims the speech; PaddleOCR PP-OCR extracts text from the image. Both via ONNX Runtime.</span></li>
     <li><b>Whisper (ASR)</b><span data-lang="es"> — si la entrada fue la voz, <code>whisper.cpp</code> la transcribe offline al idioma origen.</span><span data-lang="en"> — if the input was speech, <code>whisper.cpp</code> transcribes it offline in the source language.</span></li>
-    <li><b>Qwen (LLM)</b><span data-lang="es"> — <code>llama.cpp</code> ejecuta el modelo Qwen3.5-0.8B con un prompt de traducción; se limpia el resultado.</span><span data-lang="en"> — <code>llama.cpp</code> runs the Qwen3.5-0.8B model with a translation prompt; the output is cleaned up.</span></li>
+    <li><b>NLLB-200 (ONNX)</b><span data-lang="es"> — el encoder y el decoder merged de NLLB-200-distilled-600M (int8) traducen por ONNX Runtime, frase a frase; el tokenizador BPE va en Kotlin puro.</span><span data-lang="en"> — the NLLB-200-distilled-600M encoder and merged decoder (int8) translate via ONNX Runtime, sentence by sentence; the BPE tokenizer is pure Kotlin.</span></li>
     <li><b>Piper (TTS)</b><span data-lang="es"> — opcionalmente, la traducción se lee en voz alta con una voz neuronal local.</span><span data-lang="en"> — optionally, the translation is read aloud with a local neural voice.</span></li>
     <li><b>Historial</b><span data-lang="es"> — el par origen → traducción se guarda en una base de datos local.</span><span data-lang="en"> — the source → translation pair is saved to a local database.</span></li>
   </ol>
   <pre><code>text  ─────────▶ ┌────────────────────┐        ┌──────────────┐
-mic  ─▶ VAD ────▶ │ TranslationPipeline│ ─────▶ │  llama.cpp   │  Qwen3.5 GGUF
+mic  ─▶ VAD ────▶ │ TranslationPipeline│ ─────▶ │ ONNX Runtime │  NLLB-200 (enc+dec)
 photo ─▶ OCR ───▶ └────────────────────┘        └──────────────┘
                           │                       ┌──────────────┐
                           └─────────────────────▶ │ whisper.cpp  │  Whisper ASR
@@ -305,18 +309,41 @@ photo ─▶ OCR ───▶ └───────────────�
 <section id="modelos" class="wrap">
   <h2><span data-lang="es">Modelos y primer uso</span><span data-lang="en">Models and first run</span></h2>
   <div data-lang="es">
-    <p>La primera vez, la app descarga los modelos (~700 MB en total) y los guarda en su almacenamiento privado. Después ya no necesita red.</p>
+    <p>El motor de traducción es <b>NLLB-200-distilled-600M</b> (int8, ONNX). La primera vez la app descarga los modelos (~900 MB) y los guarda en su almacenamiento privado; después ya no necesita red.</p>
   </div>
   <div data-lang="en">
-    <p>On first run the app downloads the models (~700 MB in total) into its private storage. After that it no longer needs the network.</p>
+    <p>The translation engine is <b>NLLB-200-distilled-600M</b> (int8, ONNX). On first run the app downloads the models (~900 MB) into its private storage; after that it no longer needs the network.</p>
   </div>
+
+  <h3><span data-lang="es">Modelos NLLB (para importar desde el móvil)</span><span data-lang="en">NLLB models (to import from the phone)</span></h3>
+  <div data-lang="es">
+    <p>Descarga estos <b>3 ficheros a una misma carpeta</b> del móvil y luego: app → <b>Ajustes</b> → <i>Modelo de traducción (NLLB-200 · ONNX)</i> → <b>Importar modelos NLLB</b> → elige la carpeta. La app los copia a su memoria interna y <b>ya no descarga nada</b>.</p>
+    <p>En la variante <b>FULL</b> los modelos ya vienen incluidos (la importación es opcional); en la <b>LITE</b> hay que importarlos o dejar que se descarguen en el primer arranque.</p>
+  </div>
+  <div data-lang="en">
+    <p>Download these <b>3 files into one folder</b> on the phone, then: app → <b>Settings</b> → <i>Translation model (NLLB-200 · ONNX)</i> → <b>Import NLLB models</b> → pick the folder. The app copies them to internal storage and <b>downloads nothing</b>.</p>
+    <p>On the <b>FULL</b> build the models are already included (import is optional); on <b>LITE</b> you either import them or let them download on first run.</p>
+  </div>
+  <table>
+    <tr>
+      <th><span data-lang="es">Fichero</span><span data-lang="en">File</span></th>
+      <th><span data-lang="es">Rol</span><span data-lang="en">Role</span></th>
+      <th><span data-lang="es">Tamaño</span><span data-lang="en">Size</span></th>
+      <th><span data-lang="es">Descarga</span><span data-lang="en">Download</span></th>
+    </tr>
+    <tr><td><code>nllb_encoder_model_quantized.onnx</code></td><td><span data-lang="es">Encoder</span><span data-lang="en">Encoder</span></td><td>419 MB</td><td><a href="https://github.com/aurenox-global/traductor/releases/download/nllb-models/nllb_encoder_model_quantized.onnx">ONNX</a></td></tr>
+    <tr><td><code>nllb_decoder_model_merged_quantized.onnx</code></td><td><span data-lang="es">Decoder (merged)</span><span data-lang="en">Decoder (merged)</span></td><td>475 MB</td><td><a href="https://github.com/aurenox-global/traductor/releases/download/nllb-models/nllb_decoder_model_merged_quantized.onnx">ONNX</a></td></tr>
+    <tr><td><code>tokenizer.bin</code></td><td><span data-lang="es">Tokenizador BPE</span><span data-lang="en">BPE tokenizer</span></td><td>9 MB</td><td><a href="https://github.com/aurenox-global/traductor/releases/download/nllb-models/tokenizer.bin">BIN</a></td></tr>
+  </table>
+  <p><span data-lang="es">Los pesos de NLLB-200 están bajo licencia <b>CC-BY-NC-4.0</b> (no comercial).</span><span data-lang="en">The NLLB-200 weights are licensed <b>CC-BY-NC-4.0</b> (non-commercial).</span></p>
   <table>
     <tr>
       <th><span data-lang="es">Componente</span><span data-lang="en">Component</span></th>
       <th><span data-lang="es">Modelo</span><span data-lang="en">Model</span></th>
       <th><span data-lang="es">Tamaño aprox.</span><span data-lang="en">Approx. size</span></th>
     </tr>
-    <tr><td><span data-lang="es">Traducción</span><span data-lang="en">Translation</span></td><td>Qwen3.5-0.8B Q4_K_M (GGUF)</td><td>~503 MB</td></tr>
+    <tr><td><span data-lang="es">Traducción</span><span data-lang="en">Translation</span></td><td>NLLB-200-distilled-600M int8 (ONNX, encoder + decoder)</td><td>~894 MB</td></tr>
+    <tr><td><span data-lang="es">Tokenizador</span><span data-lang="en">Tokenizer</span></td><td>SentencePiece BPE (NLLB)</td><td>~9 MB (<span data-lang="es">incluido en la APK</span><span data-lang="en">bundled in the APK</span>)</td></tr>
     <tr><td><span data-lang="es">Voz (ASR)</span><span data-lang="en">Speech (ASR)</span></td><td>Whisper ggml-tiny / base / small</td><td>74 – 465 MB</td></tr>
     <tr><td>VAD</td><td>Silero VAD (ONNX)</td><td>~2,2 MB</td></tr>
     <tr><td>OCR</td><td>PaddleOCR PP-OCRv6 tiny (det + rec)</td><td>~6 MB</td></tr>
@@ -345,18 +372,22 @@ photo ─▶ OCR ───▶ └───────────────�
 <section id="compilar" class="wrap">
   <h2><span data-lang="es">Compilar</span><span data-lang="en">Build</span></h2>
   <div data-lang="es">
-    <p>Requisitos: JDK 17, Android SDK 35, NDK 27.0.12077973, CMake 3.22.1. Las librerías nativas (<code>llama.cpp</code> y <code>whisper.cpp</code>) se compilan con el NDK en <code>arm64-v8a</code>.</p>
+    <p>Requisitos: JDK 17, Android SDK 35, NDK 27.0.12077973, CMake 3.22.1. La parte nativa (<code>whisper.cpp</code>) se compila con el NDK en <code>arm64-v8a</code>; NLLB-200 corre por ONNX Runtime (sin llama.cpp).</p>
   </div>
   <div data-lang="en">
-    <p>Requirements: JDK 17, Android SDK 35, NDK 27.0.12077973, CMake 3.22.1. The native libraries (<code>llama.cpp</code> and <code>whisper.cpp</code>) are built with the NDK for <code>arm64-v8a</code>.</p>
+    <p>Requirements: JDK 17, Android SDK 35, NDK 27.0.12077973, CMake 3.22.1. The native part (<code>whisper.cpp</code>) is built with the NDK for <code>arm64-v8a</code>; NLLB-200 runs via ONNX Runtime (no llama.cpp).</p>
   </div>
-  <pre><code># 1. Native libraries / Librerías nativas
+  <pre><code># 1. Native library / Librería nativa (whisper.cpp)
 ./scripts/fetch-deps.sh
-./scripts/build_native.sh
+LIBS=whisper ./scripts/build_native.sh
 
 # 2. The app / La app
 ./gradlew :app:assembleDebug
 ./gradlew :app:testDebugUnitTest
+
+# 2b. FULL variant / variante FULL (all models bundled / todo incluido)
+./scripts/fetch_bundled_assets.sh
+./gradlew :app:assembleDebug -Pbundled=true
 
 # 3. Install / Instalar
 adb install -r app/build/outputs/apk/debug/app-debug.apk</code></pre>
@@ -372,18 +403,17 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk</code></pre>
   <p><span data-lang="es">Traductor se apoya en proyectos de código abierto:</span><span data-lang="en">Traductor stands on open-source projects:</span></p>
   <table>
     <tr><th><span data-lang="es">Proyecto</span><span data-lang="en">Project</span></th><th><span data-lang="es">Uso</span><span data-lang="en">Use</span></th><th><span data-lang="es">Licencia</span><span data-lang="en">License</span></th></tr>
-    <tr><td><a href="https://github.com/ggml-org/llama.cpp">llama.cpp</a></td><td><span data-lang="es">Inferencia LLM local</span><span data-lang="en">Local LLM inference</span></td><td>MIT</td></tr>
+    <tr><td><a href="https://huggingface.co/facebook/nllb-200-distilled-600M">NLLB-200</a></td><td><span data-lang="es">Modelo de traducción (ONNX)</span><span data-lang="en">Translation model (ONNX)</span></td><td>CC-BY-NC-4.0</td></tr>
     <tr><td><a href="https://github.com/ggml-org/whisper.cpp">whisper.cpp</a></td><td><span data-lang="es">Reconocimiento de voz</span><span data-lang="en">Speech recognition</span></td><td>MIT</td></tr>
     <tr><td><a href="https://github.com/k2-fsa/sherpa-onnx">sherpa-onnx</a></td><td><span data-lang="es">Runtime de Piper TTS</span><span data-lang="en">Piper TTS runtime</span></td><td>Apache-2.0</td></tr>
     <tr><td><a href="https://github.com/PaddlePaddle/PaddleOCR">PaddleOCR</a></td><td><span data-lang="es">OCR de fotos</span><span data-lang="en">Photo OCR</span></td><td>Apache-2.0</td></tr>
-    <tr><td><a href="https://github.com/microsoft/onnxruntime">ONNX Runtime</a></td><td><span data-lang="es">VAD + OCR</span><span data-lang="en">VAD + OCR</span></td><td>MIT</td></tr>
+    <tr><td><a href="https://github.com/microsoft/onnxruntime">ONNX Runtime</a></td><td><span data-lang="es">NLLB + VAD + OCR</span><span data-lang="en">NLLB + VAD + OCR</span></td><td>MIT</td></tr>
     <tr><td><a href="https://github.com/rhasspy/piper">Piper</a> / <a href="https://github.com/espeak-ng/espeak-ng">espeak-ng</a></td><td><span data-lang="es">Voces neuronales</span><span data-lang="en">Neural voices</span></td><td>MIT / GPL-3.0</td></tr>
-    <tr><td><a href="https://huggingface.co/lmstudio-community/Qwen3.5-0.8B-GGUF">Qwen3.5-0.8B</a></td><td><span data-lang="es">Modelo de traducción</span><span data-lang="en">Translation model</span></td><td>Apache-2.0</td></tr>
   </table>
 </section>
 
 <footer class="wrap">
-  <p>Traductor <b>v0.9.0</b> · <span data-lang="es">Hecho con</span><span data-lang="en">Made with</span> <span class="heart">♥</span> <span data-lang="es">en Cuba 🇨🇺 · 100% offline</span><span data-lang="en">in Cuba 🇨🇺 · 100% offline</span></p>
+  <p>Traductor <b>v1.0-nllb</b> · <span data-lang="es">Hecho con</span><span data-lang="en">Made with</span> <span class="heart">♥</span> <span data-lang="es">en Cuba 🇨🇺 · 100% offline</span><span data-lang="en">in Cuba 🇨🇺 · 100% offline</span></p>
 </footer>
 
 <script>
